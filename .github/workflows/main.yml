@@ -19,7 +19,7 @@ jobs:
     - uses: dtolnay/rust-toolchain@1.70
     - name: Install deps
       run: |
-        sudo apt install gettext libpcre2-dev python3-pexpect tmux
+        sudo apt install gettext libpcre2-dev python3-pexpect tmux less
         # Generate a locale that uses a comma as decimal separator.
         sudo locale-gen fr_FR.UTF-8
     - name: cmake
@@ -45,7 +45,7 @@ jobs:
     - name: Install deps
       run: |
         sudo apt update
-        sudo apt install gettext python3-pexpect g++-multilib tmux
+        sudo apt install gettext python3-pexpect g++-multilib tmux less
     - name: cmake
       env:
           CFLAGS: "-m32"
@@ -81,7 +81,7 @@ jobs:
         components: rust-src
     - name: Install deps
       run: |
-        sudo apt install gettext libpcre2-dev python3-pexpect tmux
+        sudo apt install gettext libpcre2-dev python3-pexpect tmux less
     - name: cmake
       env:
           CC: clang
@@ -122,7 +122,7 @@ jobs:
   #   - uses: dtolnay/rust-toolchain@1.70
   #   - name: Install deps
   #     run: |
-  #       sudo apt install gettext libpcre2-dev python3-pexpect tmux
+  #       sudo apt install gettext libpcre2-dev python3-pexpect tmux less
   #   - name: cmake
   #     env:
   #         FISH_CI_SAN: 1
@@ -153,7 +153,7 @@ jobs:
         # --break-system-packages because homebrew has now declared itself "externally managed".
         # this is CI so we don't actually care.
         sudo pip3 install --break-system-packages pexpect
-        brew install tmux
+        brew install tmux less
     - name: cmake
       run: |
         mkdir build && cd build
